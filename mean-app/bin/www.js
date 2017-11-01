@@ -6,7 +6,7 @@ var http = require('http');
 var port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
 
-//create server
+//create server from app.js
 var server = http.createServer(app);
 
 server.listen(port);
@@ -20,6 +20,7 @@ server.on('listening', onListening);
  * Normalize a port into a number, string, or false.
  */
 
+//allows us to use parsed port later?
 function normalizePort(val) {
   var port = parseInt(val, 10);
 
@@ -36,10 +37,12 @@ function normalizePort(val) {
   return false;
 }
 
+
 /**
  * Event listener for HTTP server "error" event.
  */
 
+ //processes certain server errors by logging to console and stopping the command??
 function onError(error) {
   if (error.syscall !== 'listen') {
     throw error;
@@ -64,10 +67,12 @@ function onError(error) {
   }
 }
 
+
 /**
  * Event listener for HTTP server "listening" event.
  */
 
+//logs pipe/port in debug when used
 function onListening() {
   var addr = server.address();
   var bind = typeof addr === 'string'

@@ -4,8 +4,18 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var bodyParser = require('body-parser');
 
+var mongoose = require('mongoose');
+
 var album = require('./routes/album');
 var app = express();
+
+mongoose.Promise = global.Promise;
+
+
+//connecting to local database at default port, make sure you have data/db in C:\ drive or some other defined path
+mongoose.connect('mongodb://localhost/mean-app')
+  .then(() =>  console.log('connection successful'))
+  .catch((err) => console.error(err));
 
 //need to figure out what this does
 //I know that app.use() does something for any time you access the stack
