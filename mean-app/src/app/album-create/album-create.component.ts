@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterModule, Routes } from '@angular/router';
 import { AlbumService } from '../Album.service';
 
 @Component({

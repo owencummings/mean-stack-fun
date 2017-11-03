@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { RouterModule, RouterLink } from '@angular/router';
-import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { RouterModule, RouterLink, Routes } from '@angular/router';
+//import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 
@@ -10,7 +10,7 @@ import { AlbumService } from './album.service';
 import { AlbumComponent } from './album/album.component';
 import { AlbumCreateComponent } from './album-create/album-create.component';
 
-const ROUTES = [
+const routes: Routes = [
   { path: 'albums', component: AlbumComponent },
   { path: 'album-create', component: AlbumCreateComponent },
   { path: '', redirectTo: '/albums', pathMatch: 'full' },
@@ -28,11 +28,11 @@ const ROUTES = [
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot(ROUTES)
+    RouterModule.forRoot(routes, {useHash: true})
   ],
   providers: [
     AlbumService,
-    {provide: LocationStrategy, useClass: HashLocationStrategy}
+    //{provide: LocationStrategy, useClass: HashLocationStrategy}
   ],
   bootstrap: [AppComponent]
 })
