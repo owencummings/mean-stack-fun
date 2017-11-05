@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, RouterModule, Routes } from '@angular/router';
-import { AlbumService } from '../Album.service';
+//import { Router, RouterModule, Routes } from '@angular/router';
+import { AlbumService } from '../services/album.service';
 
 @Component({
   selector: 'app-album-create',
@@ -11,7 +11,7 @@ export class AlbumCreateComponent implements OnInit {
 
   album = {};
 
-  constructor(private albumService: AlbumService, private router: Router) { }
+  constructor(private albumService: AlbumService) { }
 
   ngOnInit() {
   }
