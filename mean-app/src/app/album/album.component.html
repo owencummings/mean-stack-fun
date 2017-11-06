@@ -15,7 +15,7 @@
     </thead>
     <tbody>
       <tr *ngFor="let album of albums">
-        <td><a routerLink="['album-details', album._id ]" routerLinkActive="active"> {{ album.title }}</a></td>
+        <td><a [routerLink]="['/album-details', album._id]" routerLinkActive="active"> {{ album.title }}</a></td>
         <td>{{ album.artist }}</td>
         <td>{{ album.rating }}</td>
 

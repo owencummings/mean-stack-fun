@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AlbumService } from '../services/album.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-album-detail',
@@ -14,7 +14,14 @@ export class AlbumDetailComponent implements OnInit {
   constructor(private route: ActivatedRoute, private albumService: AlbumService) { }
 
   ngOnInit() {
-        this.getAlbumDetail(this.route.snapshot.params['id']);
+
+  this.route.snapshot.params
+    // (+) converts string 'id' to a number
+    //.switchMap(() => this.getAlbumDetail(+params['id']));
+
+    this.getAlbumDetail(this.route.snapshot.params['id']);
+  // (+) converts string 'id' to a number
+
   }
 
 
