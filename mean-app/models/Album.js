@@ -4,7 +4,8 @@ var AlbumSchema = new mongoose.Schema({
   title: String,
   artist: String,
   //publisher: String,
-  //published_date: Date,
+  //published_date: Date
+  rating: Number,
   review: String,
   updated_at: { type: Date, default: Date.now },
 });

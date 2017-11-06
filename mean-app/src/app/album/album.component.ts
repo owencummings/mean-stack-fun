@@ -20,6 +20,7 @@ export class AlbumComponent implements OnInit {
   getBookList() {
     this.albumService.getAllAlbums().then((res) => {
       this.albums = res;
+      console.log(this.albums);
     }, (err) => {
       console.log(err);
     });
