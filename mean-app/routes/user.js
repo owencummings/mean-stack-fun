@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
-var Album = require('../models/User.js');
+var User = require('../models/User.js');
 
 
 //create new User
@@ -25,3 +25,6 @@ router.delete('/:id', function(req, res, next) {
     res.json(post);
   });
 });
+
+
+module.exports = router;

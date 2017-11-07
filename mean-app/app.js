@@ -27,6 +27,7 @@ app.use(express.static(path.join(__dirname, 'dist')));
 
 //use .routes/album as /album URI redirect
 app.use('/album', album);
+app.use('/user', user);
 
 
 //setting up the error term?
