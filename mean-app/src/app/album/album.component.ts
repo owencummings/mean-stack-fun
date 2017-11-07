@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AlbumService } from '../services/album.service';
+import { UserService } from '../services/user.service';
 import { RouterModule, RouterLink, Routes, ParamMap } from '@angular/router';
+
 
 @Component({
   selector: 'app-album',
@@ -11,14 +13,23 @@ export class AlbumComponent implements OnInit {
 
   albums: any;
 
-  constructor(private albumService: AlbumService) { }
+  constructor(private albumService: AlbumService, private userService: UserService) { }
 
   ngOnInit() {
-    this.getBookList();
+    this.getAlbumList();
   }
 
-  getBookList() {
+  getAlbumList() {
     this.albumService.getAllAlbums().then((res) => {
+      this.albums = res;
+      console.log(this.albums);
+    }, (err) => {
+      console.log(err);
+    });
+  }
+
+  getUserList(){
+    this.userService.getAllUsers().then((res) => {
       this.albums = res;
       console.log(this.albums);
     }, (err) => {
