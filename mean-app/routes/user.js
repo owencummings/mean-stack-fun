@@ -20,7 +20,7 @@ router.post('/', function(req, res, next) {
 
 //delete account
 router.delete('/:id', function(req, res, next) {
-  Album.findByIdAndRemove(req.params.id, req.body, function (err, post) {
+  User.findByIdAndRemove(req.params.id, req.body, function (err, post) {
     if (err) return next(err);
     res.json(post);
   });

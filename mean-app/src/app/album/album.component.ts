@@ -17,6 +17,7 @@ export class AlbumComponent implements OnInit {
 
   ngOnInit() {
     this.getAlbumList();
+    this.getUserList();
   }
 
   getAlbumList() {

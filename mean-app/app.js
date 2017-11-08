@@ -6,7 +6,8 @@ var bodyParser = require('body-parser');
 
 var mongoose = require('mongoose');
 
-var album = require('./routes/album');
+var index = require('./routes/index');
+
 var app = express();
 
 mongoose.Promise = global.Promise;
@@ -26,8 +27,8 @@ app.use(bodyParser.urlencoded({'extended':'false'}));
 app.use(express.static(path.join(__dirname, 'dist')));
 
 //use .routes/album as /album URI redirect
-app.use('/album', album);
-app.use('/user', user);
+app.use('/api', index);
+
 
 
 //setting up the error term?
@@ -46,7 +47,7 @@ app.use(function(err, req, res, next) {
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
   res.status(err.status || 500);
-  res.render('error'); //renders error view and sends it back to client
+  res.json({ error: err }) //renders error view and sends it back to client
 });
 
 

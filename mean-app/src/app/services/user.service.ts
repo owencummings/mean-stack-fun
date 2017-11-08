@@ -10,13 +10,25 @@ export class UserService {
 
   getAllUsers() {
     return new Promise((resolve, reject) => {
-      this.http.get('/user')
+      this.http.get('/api/user')
         .map(res => res.json())
         .subscribe(res => {
           resolve(res);
         }, (err) => {
           reject(err);
         });
+    });
+  }
+
+  saveUser(data) {
+    return new Promise((resolve, reject) => {
+        this.http.post('/api/user', data)
+          .map(res => res.json())
+          .subscribe(res => {
+            resolve(res);
+          }, (err) => {
+            reject(err);
+          });
     });
   }
 

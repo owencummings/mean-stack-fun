@@ -9,7 +9,7 @@ export class AlbumService {
 
   getAllAlbums() {
     return new Promise((resolve, reject) => {
-      this.http.get('/album')
+      this.http.get('/api/album')
         .map(res => res.json())
         .subscribe(res => {
           resolve(res);
@@ -21,7 +21,7 @@ export class AlbumService {
 
   showAlbum(id) {
     return new Promise((resolve, reject) => {
-        this.http.get('/album/' + id)
+        this.http.get('/api/album/' + id)
           .map(res => res.json())
           .subscribe(res => {
             resolve(res)
@@ -33,7 +33,7 @@ export class AlbumService {
 
   saveAlbum(data) {
     return new Promise((resolve, reject) => {
-        this.http.post('/album', data)
+        this.http.post('/api/album', data)
           .map(res => res.json())
           .subscribe(res => {
             resolve(res);
@@ -45,7 +45,7 @@ export class AlbumService {
 
   updateAlbum(id, data) {
     return new Promise((resolve, reject) => {
-        this.http.put('/album/'+id, data)
+        this.http.put('/api/album/'+id, data)
           .map(res => res.json())
           .subscribe(res => {
             resolve(res);
@@ -57,7 +57,7 @@ export class AlbumService {
 
   deleteAlbum(id) {
     return new Promise((resolve, reject) => {
-        this.http.delete('/album/'+id)
+        this.http.delete('/api/album/'+id)
           .subscribe(res => {
             resolve(res);
           }, (err) => {

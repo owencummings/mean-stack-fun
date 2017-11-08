@@ -6,11 +6,16 @@ import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { AlbumService } from './services/album.service';
+
+
 import { AlbumComponent } from './album/album.component';
 import { AlbumCreateComponent } from './album-create/album-create.component';
 import { TestComponent } from './test/test.component';
 import { AlbumDetailComponent } from './album-detail/album-detail.component';
+import { RegisterUserComponent } from './register-user/register-user.component';
+
+import { AlbumService } from './services/album.service';
+import { UserService } from './services/user.service';
 
 
 const routes: Routes = [
@@ -18,6 +23,7 @@ const routes: Routes = [
   { path: 'album-create', component: AlbumCreateComponent },
   { path: 'test', component: TestComponent },
   { path: 'album-details/:id', component: AlbumDetailComponent },
+  { path: 'register-user', component: RegisterUserComponent},
   { path: '', redirectTo: '/albums', pathMatch: 'full' },
   { path: '**', redirectTo: '/albums', pathMatch: 'full' },
 ];
@@ -28,7 +34,8 @@ const routes: Routes = [
     AlbumComponent,
     AlbumCreateComponent,
     TestComponent,
-    AlbumDetailComponent
+    AlbumDetailComponent,
+    RegisterUserComponent
   ],
   imports: [
     BrowserModule,
@@ -38,6 +45,7 @@ const routes: Routes = [
   ],
   providers: [
     AlbumService,
+    UserService
     //{provide: LocationStrategy, useClass: HashLocationStrategy}
   ],
   bootstrap: [AppComponent]
