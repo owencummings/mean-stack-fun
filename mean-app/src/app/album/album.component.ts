@@ -12,6 +12,7 @@ import { RouterModule, RouterLink, Routes, ParamMap } from '@angular/router';
 export class AlbumComponent implements OnInit {
 
   albums: any;
+  users: any;
 
   constructor(private albumService: AlbumService, private userService: UserService) { }
 
@@ -31,7 +32,7 @@ export class AlbumComponent implements OnInit {
 
   getUserList(){
     this.userService.getAllUsers().then((res) => {
-      this.albums = res;
+      this.users = res;
       console.log(this.albums);
     }, (err) => {
       console.log(err);
