@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from './../services/user.service';
-import { RouterModule, RouterLink, Routes, ParamMap } from '@angular/router';
+import { RouterModule, RouterLink, Routes, ParamMap, ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-register-user',
