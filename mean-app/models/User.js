@@ -10,6 +10,8 @@ var UserSchema = new mongoose.Schema({
   join_Date: Date,
   //review: String,
   updated_at: { type: Date, default: Date.now }, //last logged in
+  hash: String,
+  salt: String
 });
 
 

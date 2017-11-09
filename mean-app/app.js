@@ -8,6 +8,8 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var passport = require('passport');
 
+require('./models/User');
+require('./config/passport');
 
 var index = require('./routes/index');
 
@@ -29,6 +31,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({'extended':'false'}));
 app.use(express.static(path.join(__dirname, 'dist')));
 
+
+//meed to add passport before using the routes
+app.use(passport.initialize());
 //use .routes/album as /album URI redirect
 app.use('/api', index);
 
@@ -44,6 +49,14 @@ app.use(function(req, res, next) {
   //I guess if it is at the end it is OK.
 });
 
+
+//if thrown an auth error, send back a 401 and do something
+app.use(function (err, req, res, next) {
+  if (err.name === 'UnauthorizedError') {
+    res.status(401);
+    res.json({"message" : err.name + ": " + err.message});
+  }
+});
 
 app.use(function(err, req, res, next) {
   //err is sent here from the previous middleware
