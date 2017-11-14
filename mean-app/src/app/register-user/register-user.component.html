@@ -1,6 +1,6 @@
 <div>
   <h1>Register User</h1>
-    <form (ngSubmit)="saveUser()" #userForm="ngForm">
+    <form (ngSubmit)="registerUser()" #userForm="ngForm">
       <div class="form-group">
         <label for="name">Username</label>
         <input type="text" class="form-control" [(ngModel)]="user.username" name="username" required>

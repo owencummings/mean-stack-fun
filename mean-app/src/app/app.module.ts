@@ -16,6 +16,7 @@ import { RegisterUserComponent } from './register-user/register-user.component';
 
 import { AlbumService } from './services/album.service';
 import { UserService } from './services/user.service';
+import { AuthenticationService } from './services/authentication.service';
 
 
 const routes: Routes = [
@@ -45,7 +46,8 @@ const routes: Routes = [
   ],
   providers: [
     AlbumService,
-    UserService
+    UserService,
+    AuthenticationService
     //{provide: LocationStrategy, useClass: HashLocationStrategy}
   ],
   bootstrap: [AppComponent]

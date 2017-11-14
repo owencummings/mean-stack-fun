@@ -11,7 +11,9 @@ var passport = require('passport');
 require('./models/User');
 require('./config/passport');
 
+app.use(passport.initialize())
 var index = require('./routes/index');
+
 
 var app = express();
 
