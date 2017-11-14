@@ -6,13 +6,6 @@ var mongoose = require('mongoose');
 var User = mongoose.model('User');
 
 module.exports.register = function(req, res) {
-  res.status(200);
-  res.json({
-    'token' : 'we did it'
-  })
-
-  /*
-
   //make new user object
   var user = new User();
 
@@ -22,10 +15,8 @@ module.exports.register = function(req, res) {
   //set name and email
   user.username = req.body.username;
   user.email = req.body.email;
-  user.join_Date = Date.now();
 
   //use setpassword function to generate the hashed password from User model
-  //shouldn't we be doing something with this password?
   user.setPassword(req.body.password);
 
 
@@ -38,8 +29,6 @@ module.exports.register = function(req, res) {
       "token" : token
     });
   });
-
-  */
 };
 
 

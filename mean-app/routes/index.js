@@ -11,9 +11,6 @@ var auth = jwt({
 
 router.use('/user', require('./user'));
 router.use('/album', require('./album'));
-
 // etc.
-//router.post() // should include the auth middleware here?
-
 
 module.exports = router;

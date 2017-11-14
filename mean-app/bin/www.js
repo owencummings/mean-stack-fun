@@ -15,6 +15,7 @@ server.on('listening', onListening);
 
 
 //need to add event listening and maybe a normalizePort?
+//still understanding what this stuff does Vv
 /**
  * Normalize a port into a number, string, or false.
  */
