@@ -21,6 +21,7 @@ export class UserService {
   }
 
   saveUser(data) {
+    console.log('Doin it')
     return new Promise((resolve, reject) => {
         this.http.post('/api/user', data)
           .map(res => res.json())
