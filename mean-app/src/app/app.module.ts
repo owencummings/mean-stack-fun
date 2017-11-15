@@ -16,6 +16,7 @@ import { RegisterUserComponent } from './register-user/register-user.component';
 
 import { AlbumService } from './services/album.service';
 import { UserService } from './services/user.service';
+import { UserComponent } from './user/user.component';
 
 
 const routes: Routes = [
@@ -24,6 +25,7 @@ const routes: Routes = [
   { path: 'test', component: TestComponent },
   { path: 'album-details/:id', component: AlbumDetailComponent },
   { path: 'register-user', component: RegisterUserComponent},
+  { path: 'user/:id', component: UserComponent },
   { path: '', redirectTo: '/albums', pathMatch: 'full' },
   { path: '**', redirectTo: '/albums', pathMatch: 'full' },
 ];
@@ -35,7 +37,8 @@ const routes: Routes = [
     AlbumCreateComponent,
     TestComponent,
     AlbumDetailComponent,
-    RegisterUserComponent
+    RegisterUserComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,

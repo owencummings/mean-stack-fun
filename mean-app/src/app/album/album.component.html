@@ -24,6 +24,6 @@
     </tbody>
   </table>
   <div *ngFor="let user of users">
-    <div> {{ user.username }} , {{ user.password }}, {{ user.email }} </div>
+    <div><a [routerLink]="['/user', user._id]" routerLinkActive="active"> {{ user.username }} </a> , {{ user.password }}, {{ user.email }} </div>
 
 </div>

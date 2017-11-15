@@ -4,13 +4,13 @@ var jwt = require('jsonwebtoken');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var bcrypt = require('bcrypt');
-var SALT_WORK_FACTOR = 10;
+var SALT_WORK_FACTOR = 10; //SECRET VALUE: ???
 
 var UserSchema = new mongoose.Schema({
   username: String,
   password: String,
   join_Date: Date,
-  email: String, 
+  email: String,
   //review: String,
   updated_at: { type: Date, default: Date.now }, //last logged in
   hash: String,
@@ -36,6 +36,14 @@ UserSchema.pre('save', function(next){
     });
   });
 })
+
+UserSchema.methods.comparePassword = function(candidatePassword, cb) {
+    bcrypt.compare(candidatePassword, this.password, function(err, isMatch) {
+        if (err) return cb(err);
+        cb(null, isMatch);
+    });
+};
+
 
 UserSchema.methods.setPassword = function(password){
   this.salt = crypto.randomBytes(16).toString('hex');
