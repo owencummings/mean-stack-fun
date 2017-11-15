@@ -13,12 +13,14 @@ export class AlbumComponent implements OnInit {
 
   albums: any;
   users: any;
+  loggedUser: any;
 
   constructor(private albumService: AlbumService, private userService: UserService) { }
 
   ngOnInit() {
     this.getAlbumList();
     this.getUserList();
+    //this.getLoggedUser();
   }
 
   getAlbumList() {
@@ -33,6 +35,15 @@ export class AlbumComponent implements OnInit {
   getUserList(){
     this.userService.getAllUsers().then((res) => {
       this.users = res;
+      console.log(this.albums);
+    }, (err) => {
+      console.log(err);
+    });
+  }
+
+  getLoggedUser() {
+    this.userService.loginUser().then((res) => {
+      this.loggedUser = res;
       console.log(this.albums);
     }, (err) => {
       console.log(err);

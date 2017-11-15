@@ -23,7 +23,21 @@
       </tr>
     </tbody>
   </table>
+
+  <br>
+
   <div *ngFor="let user of users">
     <div><a [routerLink]="['/user', user._id]" routerLinkActive="active"> {{ user.username }} </a> , {{ user.password }}, {{ user.email }} </div>
+  </div>
+
+  <br>
+
+  <<div *ngIf="!loggedUser" (click)='getLoggedUser()'>
+    Login
+  </div>
+
+  <div *ngIf="loggedUser">
+    Logged is as {{ loggedUser.name }}
+  </div>
 
 </div>

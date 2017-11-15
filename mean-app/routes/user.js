@@ -4,6 +4,16 @@ var mongoose = require('mongoose');
 var User = require('../models/User.js');
 
 
+
+router.get('/login', function(req, res, next){
+  var resBody = {
+    name: 'Lorem Ipsum'
+  }
+  //if (err) return next(err);
+  res.json(resBody)
+})
+
+
 //create new User
 router.post('/', function(req, res, next) {
   User.create(req.body, function (err, post) {
