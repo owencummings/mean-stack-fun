@@ -15,7 +15,7 @@ export class AlbumDetailComponent implements OnInit {
 
   ngOnInit() {
 
-  this.route.snapshot.params
+  //this.route.snapshot.params
     // (+) converts string 'id' to a number
     //.switchMap(() => this.getAlbumDetail(+params['id']));
 

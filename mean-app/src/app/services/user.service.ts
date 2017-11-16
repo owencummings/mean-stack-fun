@@ -46,5 +46,18 @@ export class UserService {
     });
   }
 
+  getUser(id) {
+    return new Promise((resolve, reject) => {
+        this.http.get('/api/user/' + id)
+          .map(res => res.json())
+          .subscribe(res => {
+            resolve(res)
+        }, (err) => {
+          reject(err);
+        });
+    });
+  }
+
+
 
 }

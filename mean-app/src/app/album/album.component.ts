@@ -20,6 +20,11 @@ export class AlbumComponent implements OnInit {
   ngOnInit() {
     this.getAlbumList();
     this.getUserList();
+    if (localStorage.getItem('name')){
+      this.loggedUser = {};
+      this.loggedUser.name = localStorage.getItem('name');
+    }
+    //console.log(localStorage.getItem('name'));
     //this.getLoggedUser();
   }
 
