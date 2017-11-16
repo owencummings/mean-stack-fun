@@ -32,12 +32,12 @@
 
   <br>
 
-  <<div *ngIf="!loggedUser" (click)='getLoggedUser()'>
+  <div *ngIf="!loggedUser" (click)='getLoggedUser()'>
     Login
   </div>
 
-  <div *ngIf="loggedUser">
-    Logged is as {{ loggedUser.name }}
+  <div *ngIf="loggedUser"> <!-- got a little weird thing goin on but we can deal with that later-->
+    Logged is as {{ loggedUser.name }} | <span (click)='logOut()'>Log Out</span>
   </div>
 
 </div>

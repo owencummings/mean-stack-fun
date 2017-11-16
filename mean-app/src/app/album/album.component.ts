@@ -13,7 +13,7 @@ export class AlbumComponent implements OnInit {
 
   albums: any;
   users: any;
-  loggedUser: any;
+  loggedUser: any = null;
 
   constructor(private albumService: AlbumService, private userService: UserService) { }
 
@@ -35,7 +35,6 @@ export class AlbumComponent implements OnInit {
   getUserList(){
     this.userService.getAllUsers().then((res) => {
       this.users = res;
-      console.log(this.albums);
     }, (err) => {
       console.log(err);
     });
@@ -43,11 +42,22 @@ export class AlbumComponent implements OnInit {
 
   getLoggedUser() {
     this.userService.loginUser().then((res) => {
-      this.loggedUser = res;
-      console.log(this.albums);
+      console.log(res);
+      //this.loggedUser = res;
+      for (var key in res){
+        localStorage.setItem(key, res[key]);
+      }
+      this.loggedUser = {};
+      this.loggedUser.name = localStorage.getItem('name');
+      console.log(localStorage.getItem('name'))
     }, (err) => {
       console.log(err);
     });
+  }
+
+  logOut(){
+    localStorage.clear();
+    this.loggedUser = null;
   }
 
 }
