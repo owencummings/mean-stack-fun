@@ -11,6 +11,7 @@ var auth = jwt({
 
 router.use('/user', require('./user'));
 router.use('/album', require('./album'));
+router.use('/review', require('./review'));
 // etc.
 
 module.exports = router;
