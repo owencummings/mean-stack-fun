@@ -21,6 +21,18 @@ export class UserService {
     });
   }
 
+  loginAs(id){
+    return new Promise((resolve, reject) => {
+    this.http.get('api/user/login/' + id)
+      .map(res => res.json())
+      .subscribe(res => {
+        resolve(res);
+      }, (err) => {
+        reject(err);
+      });
+    });
+  }
+
   getAllUsers() {
     return new Promise((resolve, reject) => {
       this.http.get('/api/user')

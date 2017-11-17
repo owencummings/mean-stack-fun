@@ -13,6 +13,14 @@ router.get('/login', function(req, res, next){
   res.json(resBody)
 })
 
+router.get('/login/:id', function(req, res, next){
+  User.findById(req.params.id, function (err, post) {
+    if (err) return next(err);
+    res.json(post);
+  });
+})
+
+
 
 //create new User
 router.post('/', function(req, res, next) {

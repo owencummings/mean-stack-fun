@@ -28,6 +28,14 @@ export class AlbumComponent implements OnInit {
     //this.getLoggedUser();
   }
 
+  storageSync(){
+    this.loggedUser = {}
+    this.loggedUser.name = localStorage.getItem('username');
+    this.loggedUser.id = localStorage.getItem('_id');
+    console.log(this.loggedUser);
+  }
+
+
   getAlbumList() {
     this.albumService.getAllAlbums().then((res) => {
       this.albums = res;
@@ -52,13 +60,34 @@ export class AlbumComponent implements OnInit {
       for (var key in res){
         localStorage.setItem(key, res[key]);
       }
-      this.loggedUser = {};
-      this.loggedUser.name = localStorage.getItem('name');
-      console.log(localStorage.getItem('name'))
+      this.storageSync();
     }, (err) => {
       console.log(err);
     });
   }
+
+  loginAsUser(id){
+    console.log('Attempting login as user.')
+    this.userService.loginAs(id).then((res) => {
+      console.log(res);
+      for (var key in res){
+        localStorage.setItem(key, res[key]);
+      }
+      this.storageSync();
+      //this.loggedUser = res;
+      /*
+      for (var key in res){
+        localStorage.setItem(key, res[key]);
+      }
+      this.loggedUser = {};
+      this.loggedUser.name = localStorage.getItem('name');
+      console.log(localStorage.getItem('name'))
+      */
+    }, (err) => {
+      console.log(err);
+    });
+  }
+
 
   logOut(){
     localStorage.clear();

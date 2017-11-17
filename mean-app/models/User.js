@@ -14,7 +14,8 @@ var UserSchema = new mongoose.Schema({
   //review: String,
   updated_at: { type: Date, default: Date.now }, //last logged in
   hash: String,
-  salt: String
+  salt: String,
+  reviewList: [String]
 });
 
 UserSchema.pre('save', function(next){

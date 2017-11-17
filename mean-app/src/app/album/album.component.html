@@ -27,7 +27,8 @@
   <br>
 
   <div *ngFor="let user of users">
-    <div><a [routerLink]="['/user', user._id]" routerLinkActive="active"> {{ user.username }} </a> , {{ user.password }}, {{ user.email }} </div>
+    <div><a [routerLink]="['/user', user._id]" routerLinkActive="active"> {{ user.username }} </a> , {{ user.password }},
+      {{ user.email }} | <span (click)='loginAsUser(user._id)'>Log in as User</span> </div>
   </div>
 
   <br>
