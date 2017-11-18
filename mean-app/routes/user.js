@@ -32,7 +32,7 @@ router.post('/', function(req, res, next) {
 
 
 
-//change password?
+//get all Users
 router.get('/', function(req, res, next) {
   User.find(function (err, products) {
     if (err) return next(err);

@@ -26,15 +26,54 @@
 
   <br>
 
-  <div *ngFor="let user of users">
-    <div><a [routerLink]="['/user', user._id]" routerLinkActive="active"> {{ user.username }} </a> , {{ user.password }},
-      {{ user.email }} | <span (click)='loginAsUser(user._id)'>Log in as User</span> </div>
-  </div>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Username</th>
+        <th>Password</th>
+        <th>Email</th>
+        <th>Login</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td><a [routerLink]="['/user', user._id]" routerLinkActive="active"> {{ user.username }} </a> </td>
+        <td>{{ user.password }}</td>
+        <td>{{ user.email }}</td>
+        <td><span (click)='loginAsUser(user._id)'>Log in as User</span> </td>
+      </tr>
+    </tbody>
+  </table>
+
 
   <br>
 
-  <div *ngIf="!loggedUser" (click)='getLoggedUser()'>
-    Login
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Author</th>
+        <th>Album</th>
+        <th>Rating</th>
+        <!--<th>Action</th>-->
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let review of reviews">
+        <td> {{ review.author }} </td>
+        <td>{{ review.album }} </td>
+        <td>{{ review.rating }}</td>
+
+        <!--<td>Show More</td>-->
+      </tr>
+    </tbody>
+  </table>
+
+  <br>
+  <br>
+
+  <div *ngIf="!loggedUser" >
+    Need to log in.
   </div>
 
   <div *ngIf="loggedUser"> <!-- got a little weird thing goin on but we can deal with that later-->

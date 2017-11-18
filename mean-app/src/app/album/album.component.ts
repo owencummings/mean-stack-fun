@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AlbumService } from '../services/album.service';
 import { UserService } from '../services/user.service';
+import { ReviewService } from '../services/review.service';
 import { RouterModule, RouterLink, Routes, ParamMap } from '@angular/router';
 
 
@@ -13,13 +14,16 @@ export class AlbumComponent implements OnInit {
 
   albums: any;
   users: any;
+  reviews: any;
   loggedUser: any = null;
 
-  constructor(private albumService: AlbumService, private userService: UserService) { }
+  constructor(private albumService: AlbumService, private userService: UserService,
+     private reviewService: ReviewService) { }
 
   ngOnInit() {
     this.getAlbumList();
     this.getUserList();
+    this.getReviewList();
     if (localStorage.getItem('name')){
       this.loggedUser = {};
       this.loggedUser.name = localStorage.getItem('name');
@@ -48,6 +52,14 @@ export class AlbumComponent implements OnInit {
   getUserList(){
     this.userService.getAllUsers().then((res) => {
       this.users = res;
+    }, (err) => {
+      console.log(err);
+    });
+  }
+
+  getReviewList(){
+    this.reviewService.getAllReviews().then((res) => {
+      this.reviews = res;
     }, (err) => {
       console.log(err);
     });

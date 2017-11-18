@@ -3,8 +3,7 @@
   <dl class="list">
     <dt>Artist</dt>
     <dd>{{ album.artist }}</dd>
-    <dt>Average Rating</dt>
-    <dd>{{ album.rating }} (needs review)</dd>
+
     <!--
     <dt>Review</dt>
     <dd>{{ album.review }}</dd>
@@ -14,10 +13,40 @@
   </dl>
 
   <h1>Reviews</h1>
-  <dl class="list">
-    <div> <!--should iterate over some reviews for album -->
-      sample review here
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Author</th>
+        <th>Rating</th>
+        <th>Content</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let r of reviews">
+        <td> {{ r.author }} </td>
+        <td>{{ r.rating }} </td>
+        <td>{{ r.content }}</td>
+
+        <!--<td>Show More</td>-->
+      </tr>
+    </tbody>
+  </table>
+
+  <h1>Add New Review</h1>
+  <form (ngSubmit)="saveReview()" #albumForm="ngForm">
+    <div class="form-group">
+      <label for="name">Rating</label>
+      <input type="number" min='0' max='10' class="form-control" [(ngModel)]="review.rating" name="title" required>
     </div>
-  </dl>
+    <div class="form-group">
+      <label for="name">Review</label>
+      <input type="text" class="form-control" [(ngModel)]="review.content" name="author" required>
+    </div>
+
+    <div class="form-group">
+      <button type="submit" [disabled]="!albumForm.form.valid">Save</button>
+    </div>
+  </form>
+
 
 </div>
