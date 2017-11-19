@@ -8,7 +8,7 @@ var ReviewSchema = new mongoose.Schema({
   //publisher: String,
   //published_date: Date
   rating: Number,
-  review: String,
+  content: String,
   updated_at: { type: Date, default: Date.now },
 });
 

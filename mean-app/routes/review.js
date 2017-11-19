@@ -21,7 +21,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/user/:id', function(req, res, next) {
-  Review.find(function (err, products) {
+  Review.find({authorId: req.params.id}, function (err, products) {
     if (err) return next(err);
     res.json(products);
   });
