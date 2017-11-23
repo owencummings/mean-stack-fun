@@ -56,6 +56,18 @@ export class ReviewService {
     });
   }
 
+  getReview(id){
+    return new Promise((resolve, reject) => {
+      this.http.get('/api/review/'+ id)
+        .map(res => res.json())
+        .subscribe(res => {
+          resolve(res);
+        }, (err) => {
+          reject(err);
+        });
+    });
+  }
+
 
 
 

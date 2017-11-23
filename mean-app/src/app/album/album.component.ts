@@ -43,7 +43,7 @@ export class AlbumComponent implements OnInit {
   getAlbumList() {
     this.albumService.getAllAlbums().then((res) => {
       this.albums = res;
-      console.log(this.albums);
+      //console.log(this.albums);
     }, (err) => {
       console.log(err);
     });
@@ -60,6 +60,7 @@ export class AlbumComponent implements OnInit {
   getReviewList(){
     this.reviewService.getAllReviews().then((res) => {
       this.reviews = res;
+      console.log(this.reviews)
     }, (err) => {
       console.log(err);
     });

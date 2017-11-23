@@ -18,6 +18,7 @@ import { AlbumService } from './services/album.service';
 import { UserService } from './services/user.service';
 import { ReviewService } from './services/review.service';
 import { UserComponent } from './user/user.component';
+import { ReviewDetailComponent } from './review-detail/review-detail.component';
 
 
 const routes: Routes = [
@@ -27,8 +28,9 @@ const routes: Routes = [
   { path: 'album-details/:id', component: AlbumDetailComponent },
   { path: 'register-user', component: RegisterUserComponent},
   { path: 'user/:id', component: UserComponent },
+  { path: 'review-details/:id', component: ReviewDetailComponent },
   { path: '', redirectTo: '/albums', pathMatch: 'full' },
-  { path: '**', redirectTo: '/albums', pathMatch: 'full' },
+  { path: '**', redirectTo: '/albums', pathMatch: 'full' }
 ];
 
 @NgModule({
@@ -39,7 +41,8 @@ const routes: Routes = [
     TestComponent,
     AlbumDetailComponent,
     RegisterUserComponent,
-    UserComponent
+    UserComponent,
+    ReviewDetailComponent
   ],
   imports: [
     BrowserModule,

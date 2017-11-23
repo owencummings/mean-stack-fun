@@ -19,13 +19,15 @@
         <th>Author</th>
         <th>Rating</th>
         <th>Content</th>
+        <th>See full</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let r of reviews">
-        <td> {{ r.author }} </td>
+        <td><a [routerLink]="['/user', r.authorId]" routerLinkActive="active"> {{ r.author }} </a></td>
         <td>{{ r.rating }} </td>
         <td>{{ r.content }}</td>
+        <td><a [routerLink]="['/review-details', r._id]" routerLinkActive="active">See full</a></td>
 
         <!--<td>Show More</td>-->
       </tr>

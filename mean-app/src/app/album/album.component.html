@@ -55,6 +55,7 @@
         <th>Author</th>
         <th>Album</th>
         <th>Rating</th>
+        <th>More</th>
         <!--<th>Action</th>-->
       </tr>
     </thead>
@@ -63,6 +64,7 @@
         <td> {{ review.author }} </td>
         <td>{{ review.album }} </td>
         <td>{{ review.rating }}</td>
+        <td> <a [routerLink]="['/review-details', review._id]" routerLinkActive="active">See more!</a></td>
 
         <!--<td>Show More</td>-->
       </tr>

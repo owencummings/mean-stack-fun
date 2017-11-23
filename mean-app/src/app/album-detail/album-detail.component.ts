@@ -42,6 +42,7 @@ export class AlbumDetailComponent implements OnInit {
     console.log(newReview);
 
     this.reviewService.createReview(newReview);
+    this.getReviews(this.route.snapshot.params['id']);
   }
 
 

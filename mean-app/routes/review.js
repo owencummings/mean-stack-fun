@@ -34,6 +34,13 @@ router.get('/album/:id', function(req, res, next) {
   });
 });
 
+router.get('/:id', function(req, res, next) {
+  Review.findById(req.params.id, function (err, products) {
+    if (err) return next(err);
+    res.json(products);
+  });
+});
+
 
 
 

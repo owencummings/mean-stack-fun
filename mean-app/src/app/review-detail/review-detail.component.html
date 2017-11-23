@@ -1,0 +1,25 @@
+
+<h1>  Review for
+  <a [routerLink]="['/album-details', review.albumId]" routerLinkActive="active">{{ review.album }}</a>
+  by
+  <a [routerLink]="['/user', review.authorId]" routerLinkActive="active">{{ review.author }}</a>. </h1>
+
+<br>
+<br>
+
+<h2>Rating: {{review.rating}} </h2>
+
+
+<br>
+<br>
+
+<p>
+
+{{ review.content }}
+
+<br>
+<br>
+
+Updated at {{ review.updated_at }}
+
+</p>
