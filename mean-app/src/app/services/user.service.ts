@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Http, Headers } from '@angular/http';
 import 'rxjs/add/operator/map';
 
+const ENV_PORT = 'http://localhost:3000'
 
 @Injectable()
 export class UserService {
@@ -11,7 +12,7 @@ export class UserService {
 
   loginUser(){ // just doing a basic read for this, adding creds and verification next
     return new Promise((resolve, reject) => {
-    this.http.get('api/user/login')
+    this.http.get(ENV_PORT + 'api/user/login')
       .map(res => res.json())
       .subscribe(res => {
         resolve(res);
@@ -23,7 +24,7 @@ export class UserService {
 
   loginAs(id){
     return new Promise((resolve, reject) => {
-    this.http.get('api/user/login/' + id)
+    this.http.get(ENV_PORT + 'api/user/login/' + id)
       .map(res => res.json())
       .subscribe(res => {
         resolve(res);
@@ -35,7 +36,7 @@ export class UserService {
 
   getAllUsers() {
     return new Promise((resolve, reject) => {
-      this.http.get('/api/user')
+      this.http.get(ENV_PORT + '/api/user')
         .map(res => res.json())
         .subscribe(res => {
           resolve(res);
@@ -46,9 +47,8 @@ export class UserService {
   }
 
   saveUser(data) {
-    console.log('Doin it')
     return new Promise((resolve, reject) => {
-        this.http.post('/api/user', data)
+        this.http.post(ENV_PORT + '/api/user', data)
           .map(res => res.json())
           .subscribe(res => {
             resolve(res);
@@ -60,7 +60,7 @@ export class UserService {
 
   getUser(id) {
     return new Promise((resolve, reject) => {
-        this.http.get('/api/user/' + id)
+        this.http.get(ENV_PORT + '/api/user/' + id)
           .map(res => res.json())
           .subscribe(res => {
             resolve(res)

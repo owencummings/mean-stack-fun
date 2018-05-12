@@ -2,9 +2,14 @@
 
 
 var express = require('express');
+var cors = require('cors');
 var router = express.Router();
 var mongoose = require('mongoose');
 var Album = require('../models/Album.js');
+
+
+//allow requests from a server other than this one
+router.use(cors())
 
 
 //the following just access the mongoose Schema from Album.js and do the required action

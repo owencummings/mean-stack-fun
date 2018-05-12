@@ -21,6 +21,7 @@ export class AlbumComponent implements OnInit {
      private reviewService: ReviewService) { }
 
   ngOnInit() {
+    console.log('Getting initial data')
     this.getAlbumList();
     this.getUserList();
     this.getReviewList();

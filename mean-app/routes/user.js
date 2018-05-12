@@ -2,6 +2,11 @@ var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
 var User = require('../models/User.js');
+var cors = require('cors');
+
+
+//allow requests from a server other than this one
+router.use(cors())
 
 
 

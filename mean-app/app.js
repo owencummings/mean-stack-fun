@@ -11,6 +11,7 @@ var passport = require('passport');
 require('./models/User');
 require('./config/passport');
 
+
 var index = require('./routes/index');
 
 var app = express();
@@ -32,19 +33,19 @@ app.use(bodyParser.urlencoded({'extended':'false'}));
 app.use(express.static(path.join(__dirname, 'dist')));
 
 
-//meed to add passport before using the routes
+//need to add passport before using the routes
 app.use(passport.initialize());
 //use .routes/album as /album URI redirect
 app.use('/api', index);
 
 
 
-//setting up the error term?
+//setting up the error term
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
   err.status = 404;
   next(err);
-  //Isnt this supposed to send to next app.VERB() that has an err term in function?
+  //Isnt this supposed to send to next app.VERB() that has an err term in the function params?
   //Why would we do this for everything?
   //I guess if it is at the end it is OK.
 });
